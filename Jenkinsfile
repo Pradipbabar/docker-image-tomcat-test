@@ -12,9 +12,9 @@ pipeline {
                 }
             }
         }
-        stage('Deploy in Staging Environment'){
+        stage('Create Tomcat Docker Image'){
             steps{
-                build job: 'Deploy_App_Stage'
+               sh 'docker bulid . -t tomcatwebapp:${env.BUILD_ID}'
 
             }
             
